@@ -4,7 +4,7 @@ apply plugin: "com.liferay.change.log.builder"
 
 
 println "Generating release notes (releaseNotes.txt)"
-def releaseNotes = new File('app\\build\\outputs\\apk\\releaseNotes.txt')
+def releaseNotes = new File('releaseNotes.txt')
 releaseNotes.delete()
 def lastTag = ""
 def tags = []
