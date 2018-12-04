@@ -1,4 +1,34 @@
 apply plugin: 'com.android.application'
+apply plugin: "com.liferay.change.log.builder"
+
+ext {
+    app_ver = new ConfigSlurper().parse(new File('app/versioning/version.groovy').toURL())
+    build_num = System.getenv('GO_PIPELINE_COUNTER')
+    git_rev = 'git rev-parse --verify --short HEAD'.execute().text.trim()
+    SUPPORT_LIBRARY_VERSION = '28.0.0'
+}
+
+def generateVersionCode(major, minor, patch) {
+    if ((major > 99) || (major == 0) || (minor > 99) || (patch > 99)) {
+        throw new GradleException("version number out of range")
+    }
+    major * 1000000 + minor * 10000 + patch * 100
+}
+
+def generateVersionName(major, minor, patch, build, hash) {
+    def buildStr = build == null ? "-00" : ("-$build")
+    def hashStr = hash == null ? "" : ("-$hash")
+    writeVersionName(major, minor, patch, build, hash)
+    "${major}.${minor}.${patch}${buildStr}${hashStr}"
+}
+
+def writeVersionName(major, minor, patch, build, hash) {
+    def buildStr = build == null ? "-00" : ("-$build")
+    def hashStr = hash == null ? "" : ("-$hash")
+    def file = new File("./.version")
+    file.createNewFile()
+    file.text = "${major}.${minor}.${patch}${buildStr}${hashStr}"
+}
 
 android {
     compileSdkVersion 28
