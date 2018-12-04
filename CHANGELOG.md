@@ -4,6 +4,7 @@
 
 **Merged pull requests:**
 
+- Version bump [\#6](https://github.com/E-Kelly2018/Auto-Changelog/pull/6) ([E-Kelly2018](https://github.com/E-Kelly2018))
 - Version 1.0.0 [\#5](https://github.com/E-Kelly2018/Auto-Changelog/pull/5) ([E-Kelly2018](https://github.com/E-Kelly2018))
 - this is a test  [\#4](https://github.com/E-Kelly2018/Auto-Changelog/pull/4) ([E-Kelly2018](https://github.com/E-Kelly2018))
 - updated changelog [\#3](https://github.com/E-Kelly2018/Auto-Changelog/pull/3) ([E-Kelly2018](https://github.com/E-Kelly2018))

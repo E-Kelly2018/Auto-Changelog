@@ -1,6 +1,26 @@
 apply plugin: 'com.android.application'
 apply plugin: "com.liferay.change.log.builder"
 
+
+
+println "Generating release notes (releaseNotes.txt)"
+def releaseNotes = new File('releaseNotes.txt')
+releaseNotes.delete()
+def lastTag = ""
+def tags = []
+def procTags = "git tag -l".execute()
+procTags.in.eachLine { line -> tags += line }
+tags += "head"
+
+tags.each { tag ->
+    releaseNotes << "[[ Changes from $lastTag to $tag ]]\n"
+    def cmdLine = "git log $lastTag..$tag --pretty=format:\"%cd - %s\" --date=short"
+    //releaseNotes << "$cmdLine\n\n"
+    def procCommit = cmdLine.execute()
+    procCommit.in.eachLine { line -> releaseNotes << line + "\n" }
+    releaseNotes << "\n\n\n"
+    lastTag = tag
+}
 ext {
     app_ver = new ConfigSlurper().parse(new File('app/versioning/version.groovy').toURL())
     build_num = System.getenv('GO_PIPELINE_COUNTER')
