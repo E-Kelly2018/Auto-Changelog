@@ -4,6 +4,7 @@
 
 **Merged pull requests:**
 
+- this is a test  [\#4](https://github.com/E-Kelly2018/Auto-Changelog/pull/4) ([E-Kelly2018](https://github.com/E-Kelly2018))
 - updated changelog [\#3](https://github.com/E-Kelly2018/Auto-Changelog/pull/3) ([E-Kelly2018](https://github.com/E-Kelly2018))
 - Added world to string [\#2](https://github.com/E-Kelly2018/Auto-Changelog/pull/2) ([E-Kelly2018](https://github.com/E-Kelly2018))
 - deleted int variable [\#1](https://github.com/E-Kelly2018/Auto-Changelog/pull/1) ([E-Kelly2018](https://github.com/E-Kelly2018))
